@@ -94,7 +94,7 @@ class Pipeline
 
                     //解析名称和参数值,并从容器中获取对象
                     list($name, $parameters) = $this->parsePipeString($pipe);
-                    return call_user_func_array(array($this->container[$name], $this->method),
+                    return call_user_func_array(array($this->container->make($name), $this->method),
                         array_merge(array($passable, $stack), $parameters));
                 }
             };
